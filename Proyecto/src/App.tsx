@@ -16,7 +16,7 @@ const AppWithResources = () => {
     const username = localStorage.getItem('username');
     
     return (
-        <Admin key={username} layout={Layout} dataProvider={dataProvider} dashboard={Dashboard} authProvider={authProvider} i18nProvider={i18nProvider}>
+        <Admin key={username} layout={Layout} dataProvider={dataProvider} dashboard={role === 'admin' ? Dashboard : undefined} authProvider={authProvider} i18nProvider={i18nProvider}>
             {/* Admin: acceso completo */}
             {role === 'admin' && (
                 <Resource
