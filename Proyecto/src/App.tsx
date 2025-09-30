@@ -45,16 +45,24 @@ const AppWithResources = () => {
             
             {/* Operador/Paramédico: crear reportes y ver solo los suyos */}
             {(role === 'operador' || role === 'paramedico') && (
-                <>
-                    <Resource
-                        name="my-reports"
-                        list={MyReportsList}
-                        show={MyReportShow}
-                        create={ReportCreate}
-                        icon={PersonIcon}
-                        options={{ label: 'Mis Reportes' }}
-                    />
-                </>
+                <Resource
+                    name="my-reports"
+                    list={MyReportsList}
+                    show={MyReportShow}
+                    create={ReportCreate}
+                    icon={PersonIcon}
+                    options={{ label: 'Mis Reportes' }}
+                />
+            )}
+            
+            {/* Resource por defecto cuando no hay rol (usuario no autenticado) */}
+            {!role && (
+                <Resource
+                    name="reports"
+                    list={ReportList}
+                    icon={LocalHospitalIcon}
+                    options={{ label: 'Reportes' }}
+                />
             )}
         </Admin>
     );
