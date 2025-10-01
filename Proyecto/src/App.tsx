@@ -7,6 +7,7 @@ import { Layout } from './Layout';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import PersonIcon from '@mui/icons-material/Person';
 import GroupIcon from '@mui/icons-material/Group';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import { Dashboard } from './Dashboard';
 import { authProvider } from './authProvider';
 import { i18nProvider } from './i18nProvider';
@@ -16,18 +17,26 @@ const AppWithResources = () => {
     const username = localStorage.getItem('username');
     
     return (
-        <Admin key={username} layout={Layout} dataProvider={dataProvider} dashboard={role === 'admin' ? Dashboard : undefined} authProvider={authProvider} i18nProvider={i18nProvider}>
+        <Admin key={username} layout={Layout} dataProvider={dataProvider} dashboard={false} authProvider={authProvider} i18nProvider={i18nProvider}>
             {/* Admin: acceso completo */}
             {role === 'admin' && (
-                <Resource
-                    name="reports"
-                    list={ReportList}
-                    create={ReportCreate}
-                    edit={ReportEdit}
-                    show={ReportShow}
-                    icon={LocalHospitalIcon}
-                    options={{ label: 'Todos los Reportes' }}
-                />
+                <>
+                    <Resource
+                        name="dashboard"
+                        list={() => <Dashboard />}
+                        icon={DashboardIcon}
+                        options={{ label: 'Dashboard' }}
+                    />
+                    <Resource
+                        name="reports"
+                        list={ReportList}
+                        create={ReportCreate}
+                        edit={ReportEdit}
+                        show={ReportShow}
+                        icon={LocalHospitalIcon}
+                        options={{ label: 'Todos los Reportes' }}
+                    />
+                </>
             )}
             
             {/* Jefe: reportes de su turno */}
