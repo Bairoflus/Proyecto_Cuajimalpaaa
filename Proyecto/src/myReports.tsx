@@ -1,4 +1,4 @@
-import { List, DataTable, Edit, Show, SimpleShowLayout, SimpleForm, TextInput, useGetList } from "react-admin";
+import { List, DataTable, Show, SimpleShowLayout, TextField, DateField, BooleanField } from "react-admin";
 
 // Lista de reportes filtrada por usuario
 export const MyReportsList = () => {
@@ -23,17 +23,17 @@ export const MyReportsList = () => {
 export const MyReportShow = () => (
     <Show>
         <SimpleShowLayout>
-            <TextInput source="folio" label="Folio" />
-            <TextInput source="tipo" label="Tipo" />
-            <TextInput source="gravedad" label="Gravedad" />
-            <TextInput source="fechaHoraLlamada" label="Fecha/hora llamada" />
-            <TextInput source="fechaHoraArribo" label="Fecha/hora arribo" />
-            <TextInput source="ubicacion" label="Ubicación" />
-            <TextInput source="lugarOcurrencia" label="Lugar de ocurrencia" />
-            <TextInput source="ambulancia" label="Ambulancia" />
-            <TextInput source="paramedico" label="Paramédico" />
-            <TextInput source="observaciones" label="Observaciones" />
-            <TextInput source="creadoPor" label="Creado por" />
+            <TextField source="folio" label="Folio" />
+            <TextField source="tipo" label="Tipo" />
+            <TextField source="gravedad" label="Gravedad" />
+            <DateField source="fechaHoraLlamada" label="Fecha/hora llamada" showTime />
+            <DateField source="fechaHoraArribo" label="Fecha/hora arribo" showTime />
+            <TextField source="ubicacion" label="Ubicación" />
+            <TextField source="lugarOcurrencia" label="Lugar de ocurrencia" />
+            <TextField source="ambulancia" label="Ambulancia" />
+            <TextField source="paramedico" label="Paramédico" />
+            <TextField source="observaciones" label="Observaciones" />
+            <TextField source="creadoPor" label="Creado por" />
         </SimpleShowLayout>
     </Show>
 );

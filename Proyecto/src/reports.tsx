@@ -1,7 +1,8 @@
 import {
     List, DataTable, Edit, Create, Show, SimpleShowLayout,
     SimpleForm, TextInput, NumberInput, DateTimeInput, SelectInput,
-    BooleanInput, Toolbar, SaveButton, required, minValue, FormDataConsumer
+    BooleanInput, Toolbar, SaveButton, required, minValue, FormDataConsumer,
+    TextField, DateField
 } from "react-admin";
 import { Card, CardContent } from "@mui/material";
 
@@ -145,14 +146,16 @@ export const ReportEdit = () => (
 export const ReportShow = () => (
     <Show>
         <SimpleShowLayout>
-            <TextInput source="folio" label="Folio" />
-            <TextInput source="tipo" label="Tipo" />
-            <TextInput source="gravedad" label="Gravedad" />
-            <TextInput source="ubicacion" label="Ubicación" />
-            <TextInput source="lugarOcurrencia" label="Lugar de ocurrencia" />
-            <TextInput source="ambulancia" label="Ambulancia" />
-            <TextInput source="paramedico" label="Paramédico" />
-            <TextInput source="observaciones" label="Observaciones" />
+            <TextField source="folio" label="Folio" />
+            <TextField source="tipo" label="Tipo" />
+            <TextField source="gravedad" label="Gravedad" />
+            <DateField source="fechaHoraLlamada" label="Fecha/hora llamada" showTime />
+            <DateField source="fechaHoraArribo" label="Fecha/hora arribo" showTime />
+            <TextField source="ubicacion" label="Ubicación" />
+            <TextField source="lugarOcurrencia" label="Lugar de ocurrencia" />
+            <TextField source="ambulancia" label="Ambulancia" />
+            <TextField source="paramedico" label="Paramédico" />
+            <TextField source="observaciones" label="Observaciones" />
         </SimpleShowLayout>
     </Show>
 );
