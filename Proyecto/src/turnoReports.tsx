@@ -1,4 +1,4 @@
-import { List, DataTable, Edit, Show, SimpleShowLayout, SimpleForm, TextInput, FormDataConsumer, BooleanInput } from "react-admin";
+import { List, DataTable, Edit, Show, SimpleShowLayout, SimpleForm, TextInput, FormDataConsumer, BooleanInput, TextField, DateField } from "react-admin";
 
 // Lista de reportes del turno para jefes
 export const TurnoReportsList = () => {
@@ -47,19 +47,19 @@ export const TurnoReportEdit = () => (
 export const TurnoReportShow = () => (
     <Show>
         <SimpleShowLayout>
-            <TextInput source="folio" label="Folio" />
-            <TextInput source="tipo" label="Tipo" />
-            <TextInput source="gravedad" label="Gravedad" />
-            <TextInput source="fechaHoraLlamada" label="Fecha/hora llamada" />
-            <TextInput source="fechaHoraArribo" label="Fecha/hora arribo" />
-            <TextInput source="fechaHoraCierre" label="Fecha/hora cierre" />
-            <TextInput source="ubicacion" label="Ubicación" />
-            <TextInput source="ambulancia" label="Ambulancia" />
-            <TextInput source="paramedico" label="Paramédico" />
-            <TextInput source="observaciones" label="Observaciones" />
-            <TextInput source="observacionesJefe" label="Observaciones del jefe" />
-            <TextInput source="creadoPor" label="Creado por" />
-            <TextInput source="turnoCreacion" label="Turno" />
+            <TextField source="folio" label="Folio" />
+            <TextField source="tipo" label="Tipo" />
+            <TextField source="gravedad" label="Gravedad" />
+            <DateField source="fechaHoraLlamada" label="Fecha/hora llamada" showTime />
+            <DateField source="fechaHoraArribo" label="Fecha/hora arribo" showTime />
+            <DateField source="fechaHoraCierre" label="Fecha/hora cierre" showTime />
+            <TextField source="ubicacion" label="Ubicación" />
+            <TextField source="ambulancia" label="Ambulancia" />
+            <TextField source="paramedico" label="Paramédico" />
+            <TextField source="observaciones" label="Observaciones" />
+            <TextField source="observacionesJefe" label="Observaciones del jefe" />
+            <TextField source="creadoPor" label="Creado por" />
+            <TextField source="turnoCreacion" label="Turno" />
         </SimpleShowLayout>
     </Show>
 );
